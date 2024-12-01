@@ -21,6 +21,8 @@
     "react-dom": "18.3.1",
     "react-router-dom": "6.11.2",
     "rxjs": "~7.8.0",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4",
     "zone.js": "~0.14.3"
