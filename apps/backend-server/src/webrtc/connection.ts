@@ -2,7 +2,7 @@ import { Server } from "socket.io";
 
 
 
-export default (appExpress, serverOptions) => {
+export default (appExpress: any, serverOptions: any) => {
   const io = new Server(appExpress, serverOptions);
 
   io.on('connection', (socket) => {

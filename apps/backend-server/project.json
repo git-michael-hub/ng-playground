@@ -56,8 +56,18 @@
       }
     },
     "docker-build": {
+      "executor": "nx:run-commands",
       "dependsOn": ["build"],
-      "command": "docker build -f apps/backend-server/Dockerfile . -t backend-server"
+      "options": {
+        "command": "docker build -f apps/backend-server/Dockerfile . -t backend-server"
+      }
+    },
+    "docker-compose-up": {
+      "dependsOn": ["docker-compose-down"],
+      "command": "docker compose -f apps/backend-server/docker-compose.yml up --build -d"
+    },
+    "docker-compose-down": {
+      "command": "docker compose -f apps/backend-server/docker-compose.yml down"
     }
   }
 }

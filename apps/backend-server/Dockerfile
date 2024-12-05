@@ -9,6 +9,9 @@ FROM docker.io/node:lts-alpine
 ENV HOST=0.0.0.0
 ENV PORT=3000
 
+# Install the PostgreSQL client
+RUN apk add --no-cache postgresql-client
+
 WORKDIR /app
 
 RUN addgroup --system backend-server && \
@@ -21,4 +24,6 @@ RUN chown -R backend-server:backend-server .
 # The bundled output will include external dependencies.
 RUN npm --prefix backend-server --omit=dev -f install
 
-CMD [ "node", "backend-server" ]
+RUN ls -a backend-server
+
+CMD ["node", "backend-server/main.js"]
